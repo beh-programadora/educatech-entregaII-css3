@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EducaTech — Interfaces Web Modernas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">EducaTech</div>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li class="dropdown">
+            <a href="#">Projetos ▾</a>
+            <ul class="submenu">
+              <li><a href="#">Web</a></li>
+              <li><a href="#">Mobile</a></li>
+              <li><a href="#">Design</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="menu-mobile">&#9776;</div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80"
+          alt="Banner Educacional"
+          class="hero-img"
+        />
+        <div class="hero-text">
+          <h1>Construindo Interfaces Web Modernas</h1>
+          <p>Entrega II – Estilização e Layouts com CSS3</p>
+          <button class="btn btn-primary" onclick="openModal()">
+            Começar Agora
+          </button>
+        </div>
+      </section>
+
+      <section class="grid-cards">
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=800&q=80"
+            alt="Layout Responsivo"
+          />
+          <div class="card-content">
+            <h2>Layout Responsivo</h2>
+            <p>Construído com CSS Grid e Flexbox.</p>
+            <button class="btn btn-secondary">Ver Mais</button>
+          </div>
+        </article>
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=800&q=80"
+            alt="Design System"
+          />
+          <div class="card-content">
+            <h2>Design System</h2>
+            <p>Com variáveis CSS e hierarquia tipográfica.</p>
+            <button class="btn btn-secondary">Saiba Mais</button>
+          </div>
+        </article>
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+            alt="Interatividade"
+          />
+          <div class="card-content">
+            <h2>Interatividade</h2>
+            <p>Menus dropdown, hover, modais e feedback visual.</p>
+            <button class="btn btn-secondary">Explorar</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="form-section">
+        <h2>Envie sua Mensagem</h2>
+        <form>
+          <input type="text" placeholder="Seu nome" required />
+          <input type="email" placeholder="Seu e-mail" required />
+          <input type="file" accept="image/*" />
+          <textarea placeholder="Sua mensagem" required></textarea>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </section>
+
+      <section class="feedback">
+        <div class="alert success">✔️ Mensagem enviada com sucesso!</div>
+        <div class="alert error">❌ Erro ao enviar mensagem.</div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 EducaTech — Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h3>Seja Bem-vindo(a)!</h3>
+        <p>
+          Você está prestes a explorar um design moderno e responsivo com CSS3
+          💜
+        </p>
+        <button class="btn btn-secondary" onclick="closeModal()">Fechar</button>
+      </div>
+    </div>
+
+    <script>
+      // MENU RESPONSIVO
+      const mobileMenu = document.querySelector(".menu-mobile");
+      const menu = document.querySelector(".menu");
+      mobileMenu.addEventListener("click", () =>
+        menu.classList.toggle("active")
+      );
+
+      // MODAL
+      function openModal() {
+        document.getElementById("modal").style.display = "flex";
+      }
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      // ANIMAÇÃO DE SCROLL
+      window.addEventListener("scroll", () => {
+        document.querySelectorAll(".card").forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100)
+            card.classList.add("visible");
+        });
+      });
+    </script>
+  </body>
+</html>
